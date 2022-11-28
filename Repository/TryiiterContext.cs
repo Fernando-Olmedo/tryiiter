@@ -5,6 +5,14 @@ using tryiiter.Models;
 
 public class TryiiterContext : DbContext
 {
+    public TryiiterContext(DbContextOptions<TryiiterContext> options) : base(options)
+    {
+    }
+
+    public TryiiterContext()
+    {
+    }
+    
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -13,14 +21,6 @@ public class TryiiterContext : DbContext
     protected override void OnModelCreating(ModelBuilder mb)
     {
         mb.Entity<PostCategory>().HasKey(x => new { x.CategoryId, x.PostId });
-    }
-
-    public TryiiterContext(DbContextOptions<TryiiterContext> options) : base(options)
-    {
-    }
-
-    public TryiiterContext()
-    {
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

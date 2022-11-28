@@ -7,18 +7,13 @@ public class Post
 {
     [Column("id")]
     [Key]
-    public int PostId { get; set; }
+    public long PostId { get; set; }
     [Column("content")]
     [Required]
     public string Content { get; set; }
-    [Column("category_id")]
-    [ForeignKey("CategoryId")]
-    [Required]
-    public ICollection<Category> CategoryId { get; set; }
     [Column("user_id")]
-    [ForeignKey("UserId")]
     [Required]
-    public User UserId { get; set; }
+    public User User { get; set; }
     
     [Column("image")]
     [Required]
