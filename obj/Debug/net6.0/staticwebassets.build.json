@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "Sp2+YerFihnKyEraDhkV1xsUwQ/k8qbzNpa6HnCODCQ=",
+  "Source": "tryiiter",
+  "BasePath": "_content/tryiiter",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "tryiiter/wwwroot",
+      "Source": "tryiiter",
+      "ContentRoot": "/Users/weslley/Studies/csharp/tryiiter/wwwroot/",
+      "BasePath": "_content/tryiiter",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
