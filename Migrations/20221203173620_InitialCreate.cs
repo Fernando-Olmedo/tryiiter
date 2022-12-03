@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace tryiiter.Migrations
 {
     /// <inheritdoc />
-    public partial class AddTryiiterDatabase : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -48,17 +48,17 @@ namespace tryiiter.Migrations
                     id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserId = table.Column<long>(type: "bigint", nullable: false),
+                    userid = table.Column<long>(name: "user_id", type: "bigint", nullable: false),
                     image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     published = table.Column<DateTime>(type: "Date", nullable: false),
-                    updated = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
+                    updated = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Posts_Users_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Posts_Users_user_id",
+                        column: x => x.userid,
                         principalTable: "Users",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
@@ -94,9 +94,9 @@ namespace tryiiter.Migrations
                 column: "post_id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Posts_UserId",
+                name: "IX_Posts_user_id",
                 table: "Posts",
-                column: "UserId");
+                column: "user_id");
         }
 
         /// <inheritdoc />

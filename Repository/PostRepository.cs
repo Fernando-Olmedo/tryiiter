@@ -2,12 +2,12 @@ using tryiiter.Models;
 
 namespace tryiiter.Repository;
 
-public class PostRepository
+public class PostRepository : IPostRepository
 {
     private readonly TryiiterContext _context;
 
     public PostRepository(TryiiterContext context)
-    {
+    { 
         _context = context;
     }
 
@@ -15,5 +15,4 @@ public class PostRepository
     {
         return _context.Posts.ToList();
     }
-
 }

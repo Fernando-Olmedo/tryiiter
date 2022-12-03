@@ -1,11 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
+using tryiiter.Models;
 using tryiiter.Repository;
 
 namespace tryiiter.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class PostController : ControllerBase
+public class PostController : Controller
 {
     private readonly PostRepository _repository;
 

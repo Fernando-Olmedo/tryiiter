@@ -22,6 +22,11 @@
     <ItemGroup>
       <Compile Remove="wwwroot\**" />
       <Compile Remove="Views\**" />
+      <Compile Remove="Migrations\20221128120533_AddTryiiterDatabase.cs" />
+      <Compile Remove="Migrations\20221128120533_AddTryiiterDatabase.Designer.cs" />
+      <Compile Remove="Migrations\20221128122031_ChangeUserIdColumnNameInPostsTable.cs" />
+      <Compile Remove="Migrations\20221128122031_ChangeUserIdColumnNameInPostsTable.Designer.cs" />
+      <Compile Remove="Migrations\TryiiterContextModelSnapshot.cs" />
     </ItemGroup>
 
     <ItemGroup>
@@ -107,6 +112,10 @@
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Migrations" />
     </ItemGroup>
 
 </Project>

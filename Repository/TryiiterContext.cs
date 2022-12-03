@@ -21,6 +21,9 @@ public class TryiiterContext : DbContext
     protected override void OnModelCreating(ModelBuilder mb)
     {
         mb.Entity<PostCategory>().HasKey(x => new { x.CategoryId, x.PostId });
+        mb.Entity<Post>()
+            .HasOne(y => y.User)
+            .WithMany(y => y.Posts);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

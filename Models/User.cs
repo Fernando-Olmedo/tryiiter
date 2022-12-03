@@ -17,6 +17,5 @@ public class User
     [Column("password")]
     public string Password { get; set; }
     
-    [ForeignKey("user_id")]
-    public Post Post { get; set; }
+    public ICollection<Post>? Posts { get; set; }
 }
