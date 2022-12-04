@@ -6,4 +6,5 @@ public interface IPostRepository
 {
     IEnumerable<Post> GetPosts();
     void AddPost(PostInsert post);
+    Post GetPostById(long id);
 }

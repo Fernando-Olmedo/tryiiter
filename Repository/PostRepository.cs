@@ -30,4 +30,20 @@ public class PostRepository : IPostRepository
         _context.Posts.Add(newPost);
         _context.SaveChanges();
     }
+
+    public Post GetPostById(long id)
+    {
+        return _context.Posts
+            .Where(p => p.PostId == id)
+            .Select(x => new Post
+            {
+                PostId = x.PostId,
+                Content = x.Content,
+                UserId = x.UserId,
+                Image = x.Image,
+                Published = x.Published,
+                Updated = x.Updated,
+                PostCategories = x.PostCategories
+            }).First();
+    }
 }

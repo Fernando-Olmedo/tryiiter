@@ -21,6 +21,12 @@ public class PostController : Controller
         return Ok(_repository.GetPosts());
     }
 
+    [HttpGet("{id}")]
+    public IActionResult GetById(long id)
+    {
+        return Ok(_repository.GetPostById(id));
+    }
+
     [HttpPost]
     public IActionResult Add([FromBody] PostInsert post)
     {
