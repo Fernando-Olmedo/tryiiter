@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace tryiiter.Models;
 
-public class Post
+public class Post : BaseEntity
 {
     [Column("id")]
     [Key]
@@ -20,14 +20,14 @@ public class Post
     [Required]
     public string Image { get; set; }
 
-    [Column("published", TypeName = "Date")]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity), DataMember]
-    public DateTime Published { get; set; }
-
-    [Timestamp]
-    [Column("updated")]
-    [DatabaseGenerated(DatabaseGeneratedOption.Computed), DataMember]
-    public DateTime? Updated { get; set; }
+    // [Column("published", TypeName = "Date")]
+    // // [DatabaseGenerated(DatabaseGeneratedOption.Identity), DataMember]
+    // public DateTime Published { get; set; }
+    //
+    // // [Timestamp]
+    // [Column("updated")]
+    // // [DatabaseGenerated(DatabaseGeneratedOption.Computed), DataMember]
+    // public DateTime? Updated { get; set; }
     
     [ForeignKey("PostId")]
     public ICollection<PostCategory> PostCategories { get; set; }
@@ -43,5 +43,12 @@ public class PostInsert
     public string Content { get; set; }
     public long UserId { get; set; }
     public string Image { get; set; }
-    public DateTime? Updated { get; set; }
+}
+
+public class BaseEntity
+{
+    [Column("created_at")]
+    public DateTime CreatedAt { get; set; }
+    [Column("updated_at")]
+    public DateTime UpdatedAt { get; set; }
 }

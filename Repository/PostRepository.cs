@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using tryiiter.Models;
 
 namespace tryiiter.Repository;
@@ -23,8 +25,7 @@ public class PostRepository : IPostRepository
             Content = post.Content,
             UserId = post.UserId,
             Image = post.Image,
-            Updated = post.Updated,
-            Published = DateTime.Now
+            CreatedAt = DateTime.Now
         };
 
         _context.Posts.Add(newPost);
@@ -41,9 +42,22 @@ public class PostRepository : IPostRepository
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
-                Published = x.Published,
-                Updated = x.Updated,
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt,
                 PostCategories = x.PostCategories
             }).First();
+    }
+
+    public void UpdatePost(PostInsert post, long id)
+    {
+        var _post = _context.Posts.Find(id);
+        if (_post != null)
+        {
+            _post.Content = post.Content;
+            _post.Image = post.Image;
+            _post.UserId = post.UserId;
+            _post.UpdatedAt = DateTime.Now;
+            _context.SaveChanges();
+        }
     }
 }

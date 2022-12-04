@@ -33,4 +33,11 @@ public class PostController : Controller
         _repository.AddPost(post);
         return Created("", post);
     }
+
+    [HttpPut("{id}")]
+    public IActionResult Update([FromBody] PostInsert post, long id)
+    {
+        _repository.UpdatePost(post, id);
+        return Ok();
+    }
 }
