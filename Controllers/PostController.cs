@@ -20,4 +20,11 @@ public class PostController : Controller
     {
         return Ok(_repository.GetPosts());
     }
+
+    [HttpPost]
+    public IActionResult Add([FromBody] PostInsert post)
+    {
+        _repository.AddPost(post);
+        return Created("", post);
+    }
 }

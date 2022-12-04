@@ -32,3 +32,16 @@ public class Post
     [ForeignKey("PostId")]
     public ICollection<PostCategory> PostCategories { get; set; }
 }
+
+// public class PostDTO
+// {
+//     
+// }
+
+public class PostInsert
+{
+    public string Content { get; set; }
+    public long UserId { get; set; }
+    public string Image { get; set; }
+    public DateTime? Updated { get; set; }
+}
