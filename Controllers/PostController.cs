@@ -38,6 +38,13 @@ public class PostController : Controller
     public IActionResult Update([FromBody] PostInsert post, long id)
     {
         _repository.UpdatePost(post, id);
-        return Ok();
+        return Ok(new { message = "Atualizado com sucesso!" });
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(long id)
+    {
+        _repository.DeletePost(id);
+        return Ok(new { message = "Removido com sucesso!" });
     }
 }

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using tryiiter.Models;
@@ -57,6 +58,17 @@ public class PostRepository : IPostRepository
             _post.Image = post.Image;
             _post.UserId = post.UserId;
             _post.UpdatedAt = DateTime.Now;
+            _context.SaveChanges();
+        }
+    }
+
+    public void DeletePost(long id)
+    {
+        var post = _context.Posts.Find(id);
+
+        if (post != null)
+        {
+            _context.Posts.Remove(post);
             _context.SaveChanges();
         }
     }
