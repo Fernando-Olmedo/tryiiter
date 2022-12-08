@@ -10,7 +10,7 @@ public class UserRepository : IUserRepository
     {
         _context = context;
     }
-    public IEnumerable<Post> GetUsers()
+    public IEnumerable<User> GetUsers()
     {
         return _context.Users.ToList();
     }
@@ -25,13 +25,12 @@ public class UserRepository : IUserRepository
                 Email = x.Email,
                 Module = x.Module,
                 Status = x.Status
-            });
+            }).First();
     }
     public void AddUser(IUser user)
     {
         User newUser = new User
         {
-            UserId = user.UserId,
             Name = user.Name,
             Email = user.Email,
             Module = user.Module,
@@ -41,5 +40,14 @@ public class UserRepository : IUserRepository
         
         _context.Users.Add(newUser);
         _context.SaveChanges();
+    }
+    public void UpdateUserModule(long id, string module)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void UpdateUserStatus(long id, string status)
+    {
+        throw new NotImplementedException();
     }
 }
