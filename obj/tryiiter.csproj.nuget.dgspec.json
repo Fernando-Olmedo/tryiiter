@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj": {}
+    "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {}
   },
   "projects": {
-    "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj": {
+    "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj",
+        "projectUniqueName": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
         "projectName": "tryiiter",
-        "projectPath": "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj",
-        "packagesPath": "/Users/weslley/.nuget/packages/",
-        "outputPath": "/Users/weslley/Studies/csharp/tryiiter/obj/",
+        "projectPath": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
+        "packagesPath": "C:\\Users\\Hiago Rodrigues\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/weslley/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Hiago Rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -78,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
