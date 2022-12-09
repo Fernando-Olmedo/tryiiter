@@ -27,21 +27,25 @@
       <Compile Remove="Migrations\20221128122031_ChangeUserIdColumnNameInPostsTable.cs" />
       <Compile Remove="Migrations\20221128122031_ChangeUserIdColumnNameInPostsTable.Designer.cs" />
       <Compile Remove="Migrations\TryiiterContextModelSnapshot.cs" />
+      <Compile Remove="TryiiterTest\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="wwwroot\**" />
       <EmbeddedResource Remove="Views\**" />
+      <EmbeddedResource Remove="TryiiterTest\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="wwwroot\**" />
       <None Remove="Views\**" />
+      <None Remove="TryiiterTest\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="wwwroot\**" />
       <Content Remove="Views\**" />
+      <Content Remove="TryiiterTest\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -112,6 +116,9 @@
       <_ContentIncludedByDefault Remove="Views\Shared\_ValidationScriptsPartial.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewImports.cshtml" />
       <_ContentIncludedByDefault Remove="Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="TryiiterTest\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="TryiiterTest\obj\project.packagespec.json" />
+      <_ContentIncludedByDefault Remove="TryiiterTest\obj\TryiiterTest.csproj.nuget.dgspec.json" />
     </ItemGroup>
 
     <ItemGroup>
