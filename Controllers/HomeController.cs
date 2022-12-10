@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using tryiiter.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using tryiiter.Repository;
 
 namespace tryiiter.Controllers;

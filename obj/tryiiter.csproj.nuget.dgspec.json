@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {}
+    "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {
+    "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
+        "projectUniqueName": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
         "projectName": "tryiiter",
-        "projectPath": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
+        "projectPath": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
         "packagesPath": "C:\\Users\\Hiago Rodrigues\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\obj\\",
+        "outputPath": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hiago Rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -38,6 +38,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.0, )"

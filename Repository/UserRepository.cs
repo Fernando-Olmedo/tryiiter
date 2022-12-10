@@ -43,11 +43,21 @@ public class UserRepository : IUserRepository
     }
     public void UpdateUserModule(long id, string module)
     {
-        throw new NotImplementedException();
+        var _user = _context.Users.Find(id);
+        if (_user != null)
+        {
+            _user.Module = module;
+            _context.SaveChanges();
+        }
     }
 
     public void UpdateUserStatus(long id, string status)
     {
-        throw new NotImplementedException();
+        var _user = _context.Users.Find(id);
+        if (_user != null)
+        {
+            _user.Status = status;
+            _context.SaveChanges();
+        }
     }
 }
