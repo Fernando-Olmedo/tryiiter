@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tryiiter.Models;
 
-public class Category
+public class Category : ICategory
 {
     [Column("id")]
     public int Id { get; set; }
