@@ -16,4 +16,6 @@ public class User
     public string Status { get; set; }
     [Column("password")]
     public string Password { get; set; }
+    
+    public ICollection<Post>? Posts { get; set; }
 }
