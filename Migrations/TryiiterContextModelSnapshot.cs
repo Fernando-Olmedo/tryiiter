@@ -66,13 +66,13 @@ namespace tryiiter.Migrations
 
                     b.Property<byte[]>("Updated")
                         .IsConcurrencyToken()
-                        .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion")
                         .HasColumnName("updated");
 
                     b.Property<long>("UserId")
-                        .HasColumnType("bigint");
+                        .HasColumnType("bigint")
+                        .HasColumnName("user_id");
 
                     b.HasKey("PostId");
 
@@ -140,7 +140,7 @@ namespace tryiiter.Migrations
             modelBuilder.Entity("tryiiter.Models.Post", b =>
                 {
                     b.HasOne("tryiiter.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Posts")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -175,6 +175,11 @@ namespace tryiiter.Migrations
             modelBuilder.Entity("tryiiter.Models.Post", b =>
                 {
                     b.Navigation("PostCategories");
+                });
+
+            modelBuilder.Entity("tryiiter.Models.User", b =>
+                {
+                    b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618
         }
