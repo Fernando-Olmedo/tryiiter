@@ -26,16 +26,19 @@ public class UserController : Controller
     [HttpPost]
     public IActionResult AddUser([FromBody] IUser user)
     {
-        return Created(_repository.AddUser(user));
+        _repository.AddUser(user);
+        return Created("ok", user);
     }
     [HttpPatch("{id}")]
     public IActionResult UpdateModule([FromBody] string module, long id)
     {
-        return Ok(_repository.UpdateUserModule(id, module));
+        _repository.UpdateUserModule(id, module);
+        return Ok(new { message = "Atualizado com sucesso!" });
     }
     [HttpPatch("{id}")]
     public IActionResult UpdateUserStatus([FromBody] string status, long id)
     {
-        return Ok(_repository.UpdateUserStatus(id, status));
+        _repository.UpdateUserStatus(id, status);
+        return Ok(new { message = "Atualizado com sucesso!" });
     }
 }

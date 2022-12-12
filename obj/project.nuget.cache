@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "q0YnZUrqHBHkuZVYpKR9U6Ur/IO/6z8u0VdObXBGMIrBmXjZpUjpsMtVs+kyREpp1Pld+EFqJrH3ZbpGQWVxng==",
+  "dgSpecHash": "OJKuYeNnSlPWeyf3GTUsYcSbkBiwLfLVXiRaWlVfe5SH6QboPu9XGPBGVuuZCgocNxDK18jFhomKXaBeudzFFA==",
   "success": true,
   "projectFilePath": "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj",
   "expectedPackageFiles": [
@@ -57,10 +57,14 @@
     "/Users/olmedojr/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "/Users/olmedojr/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/olmedojr/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "/Users/olmedojr/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "/Users/olmedojr/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.4.0/swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/olmedojr/.nuget/packages/system.configuration.configurationmanager/5.0.0/system.configuration.configurationmanager.5.0.0.nupkg.sha512",
