@@ -9,7 +9,6 @@ namespace tryiiter.Controllers;
 public class UserController : Controller
 {
     private readonly UserRepository _repository;
-    private IActionResult? _result;
     public UserController(UserRepository repository)
     {
         _repository = repository;
@@ -17,31 +16,26 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult GetUser()
     {
-        Ok(_repository.GetUsers());
-        return _result!;
+        return Ok(_repository.GetUsers());
     }
     [HttpGet("{id}")]
     public IActionResult GetUserById(long id)
     {
-        Ok(_repository.GetUserById(id));
-        return _result!;
+        return Ok(_repository.GetUserById(id));
     }
     [HttpPost]
     public IActionResult AddUser([FromBody] IUser user)
     {
-        _repository.AddUser(user);
-        return _result!;
+        return Created(_repository.AddUser(user));
     }
     [HttpPatch("{id}")]
     public IActionResult UpdateModule([FromBody] string module, long id)
     {
-        _repository.UpdateUserModule(id, module);
-        return _result!;
+        return Ok(_repository.UpdateUserModule(id, module));
     }
     [HttpPatch("{id}")]
     public IActionResult UpdateUserStatus([FromBody] string status, long id)
     {
-        _repository.UpdateUserStatus(id, status);
-        return _result!;
+        return Ok(_repository.UpdateUserStatus(id, status));
     }
 }
