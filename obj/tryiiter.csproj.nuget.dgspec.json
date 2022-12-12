@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {}
+    "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj": {
+    "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
+        "projectUniqueName": "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj",
         "projectName": "tryiiter",
-        "projectPath": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\tryiiter.csproj",
-        "packagesPath": "C:\\Users\\Hiago Rodrigues\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Hiago Rodrigues\\Documents\\GitHub\\tryiiter\\obj\\",
+        "projectPath": "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj",
+        "packagesPath": "/Users/olmedojr/.nuget/packages/",
+        "outputPath": "/Users/olmedojr/ACC-XP-C#/tryiiter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Hiago Rodrigues\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/olmedojr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }
