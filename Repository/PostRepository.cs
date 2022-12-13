@@ -14,9 +14,21 @@ public class PostRepository : IPostRepository
         _context = context;
     }
 
-    public IEnumerable<Post> GetPosts()
+    public async Task<IEnumerable<PostDTO>> GetPosts()
     {
-        return _context.Posts.ToList();
+        var posts = _context.Posts
+            .Select(x => new PostDTO
+            {
+                Id = x.PostId,
+                Content = x.Content,
+                UserId = x.UserId,
+                Image = x.Image,
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt,
+            });
+        
+        var result = await posts.ToListAsync();
+        return result;
     }
 
     public void AddPost(PostInsert post)

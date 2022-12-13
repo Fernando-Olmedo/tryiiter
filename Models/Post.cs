@@ -39,3 +39,13 @@ public class BaseEntity
     [Column("updated_at")]
     public DateTime UpdatedAt { get; set; }
 }
+
+public class PostDTO
+{
+    public long Id { get; set; }
+    public string Content { get; set; }
+    public long UserId { get; set; }
+    public string Image { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
+}
