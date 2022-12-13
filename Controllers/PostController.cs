@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tryiiter.Models;
 using tryiiter.Repository;
@@ -16,6 +17,7 @@ public class PostController : Controller
     }
 
     [HttpGet]
+    [AllowAnonymous]
     public IActionResult Get()
     {
         return Ok(_repository.GetPosts());

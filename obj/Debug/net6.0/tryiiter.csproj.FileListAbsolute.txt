@@ -76,12 +76,18 @@
 /Users/weslley/Studies/csharp/tryiiter/obj/Debug/net6.0/tryiiter.pdb
 /Users/weslley/Studies/csharp/tryiiter/obj/Debug/net6.0/tryiiter.genruntimeconfig.cache
 /Users/weslley/Studies/csharp/tryiiter/obj/Debug/net6.0/ref/tryiiter.dll
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.csproj.AssemblyReference.cache
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.AssemblyInfoInputs.cache
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.AssemblyInfo.cs
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.csproj.CoreCompileInputs.cache
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.dll
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\refint\tryiiter.dll
-C:\Users\Hiago Rodrigues\Documents\GitHub\tryiiter\obj\Debug\net6.0\tryiiter.pdb
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.csproj.AssemblyReference.cache
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.AssemblyInfoInputs.cache
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.AssemblyInfo.cs
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.csproj.CoreCompileInputs.cache
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.dll
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/refint/tryiiter.dll
+C:/Users/Hiago Rodrigues/Documents/GitHub/tryiiter/obj/Debug/net6.0/tryiiter.pdb
+/Users/weslley/Studies/csharp/tryiiter/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/weslley/Studies/csharp/tryiiter/bin/Debug/net6.0/Microsoft.OpenApi.dll
+/Users/weslley/Studies/csharp/tryiiter/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/weslley/Studies/csharp/tryiiter/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/weslley/Studies/csharp/tryiiter/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/weslley/Studies/csharp/tryiiter/obj/Debug/net6.0/tryiiter.MvcApplicationPartsAssemblyInfo.cs

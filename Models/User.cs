@@ -1,11 +1,13 @@
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace tryiiter.Models;
 
 public class User
 {
+    [Key]
     [Column("id")]
-    public long? UserId { get; set; }
+    public long UserId { get; set; }
     [Column("name")]
     public string? Name { get; set; }
     [Column("email")]

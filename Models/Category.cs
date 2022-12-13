@@ -10,5 +10,5 @@ public class Category : ICategory
     public string Name { get; set; }
     
     [ForeignKey("CategoryId")]
-    public ICollection<PostCategory> PostCategories { get; set; }
+    public ICollection<PostCategory>? PostCategories { get; set; }
 }

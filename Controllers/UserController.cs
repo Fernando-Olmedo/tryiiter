@@ -24,7 +24,7 @@ public class UserController : Controller
         return Ok(_repository.GetUserById(id));
     }
     [HttpPost]
-    public IActionResult AddUser([FromBody] IUser user)
+    public IActionResult AddUser([FromBody] User user)
     {
         _repository.AddUser(user);
         return Created("ok", user);

@@ -6,7 +6,7 @@ public interface IUserRepository
 {
     IEnumerable<User> GetUsers();
     User GetUserById(long id);
-    void AddUser(IUser user);
+    void AddUser(User user);
     void UpdateUserModule(long id, string module);
     void UpdateUserStatus(long id, string status);
 }

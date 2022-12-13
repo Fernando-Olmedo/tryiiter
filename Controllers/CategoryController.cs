@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using tryiiter.Models;
 using tryiiter.Repository;
 
 namespace tryiiter.Controllers;
@@ -28,9 +30,10 @@ public class CategoryController : Controller
     }
     
     [HttpPost]
-    public IActionResult AddCategory([FromBody] String categoryName)
+    [Authorize]
+    public IActionResult AddCategory([FromBody] Category categoryName)
     {
-        _repository.AddCategory(categoryName);
+        _repository.AddCategory(categoryName.Name);
         return Ok(new { message = "Adicionado com sucesso!" });
     }
 

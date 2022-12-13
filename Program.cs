@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using tryiiter.Repository;
 using tryiiter.Constants;
+using tryiiter.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TryiiterContext>();
 builder.Services.AddScoped<PostRepository>();
+builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<CategoryRepository>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

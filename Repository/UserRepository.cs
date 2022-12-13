@@ -27,7 +27,7 @@ public class UserRepository : IUserRepository
                 Status = x.Status
             }).First();
     }
-    public void AddUser(IUser user)
+    public void AddUser(User user)
     {
         User newUser = new User
         {
