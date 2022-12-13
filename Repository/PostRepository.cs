@@ -31,6 +31,20 @@ public class PostRepository : IPostRepository
 
         _context.Posts.Add(newPost);
         _context.SaveChanges();
+
+        List<PostCategory> postCategoriesList = new List<PostCategory>();
+
+        foreach (var t in post.CategoryIds)
+        {
+            postCategoriesList.Add(new PostCategory
+            {
+                PostId = newPost.PostId,
+                CategoryId = t,
+            });
+        }
+
+        _context.PostCategories.BulkInsert(postCategoriesList);
+        _context.BulkSaveChanges();
     }
 
     public Post GetPostById(long id)

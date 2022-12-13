@@ -30,7 +30,6 @@ public class CategoryController : Controller
     }
     
     [HttpPost]
-    [Authorize]
     public IActionResult AddCategory([FromBody] Category categoryName)
     {
         _repository.AddCategory(categoryName.Name);

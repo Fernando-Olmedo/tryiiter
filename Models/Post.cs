@@ -20,29 +20,16 @@ public class Post : BaseEntity
     [Required]
     public string Image { get; set; }
 
-    // [Column("published", TypeName = "Date")]
-    // // [DatabaseGenerated(DatabaseGeneratedOption.Identity), DataMember]
-    // public DateTime Published { get; set; }
-    //
-    // // [Timestamp]
-    // [Column("updated")]
-    // // [DatabaseGenerated(DatabaseGeneratedOption.Computed), DataMember]
-    // public DateTime? Updated { get; set; }
-    
     [ForeignKey("PostId")]
     public ICollection<PostCategory> PostCategories { get; set; }
 }
-
-// public class PostDTO
-// {
-//     
-// }
 
 public class PostInsert
 {
     public string Content { get; set; }
     public long UserId { get; set; }
     public string Image { get; set; }
+    public int[] CategoryIds { get; set; }
 }
 
 public class BaseEntity
