@@ -59,20 +59,20 @@ public class PostRepository : IPostRepository
         _context.BulkSaveChanges();
     }
 
-    public Post GetPostById(long id)
+    public async Task<PostDTO> GetPostById(long id)
     {
-        return _context.Posts
+        var post = await _context.Posts
             .Where(p => p.PostId == id)
-            .Select(x => new Post
+            .Select(x => new PostDTO
             {
-                PostId = x.PostId,
+                Id = x.PostId,
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt,
-                PostCategories = x.PostCategories
-            }).First();
+            }).ToListAsync();
+        return post[0];
     }
 
     public void UpdatePost(PostInsert post, long id)

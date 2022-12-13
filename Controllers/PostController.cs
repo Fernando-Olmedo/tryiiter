@@ -26,9 +26,10 @@ public class PostController : Controller
 
     [HttpGet("{id}")]
     [AllowAnonymous]
-    public IActionResult GetById(long id)
+    public async Task<IActionResult> GetById(long id)
     {
-        return Ok(_repository.GetPostById(id));
+        var result = await _repository.GetPostById(id);
+        return Ok(result);
     }
 
     [HttpPost]
