@@ -4,7 +4,7 @@ A Trybe decidiu desenvolver sua própria rede social, totalmente baseada em text
 # Arquitetura do Projeto
 <details>
 
-![topologia-da-aplicacao](https://github.com:Fernando-Olmedo/tryiiter/blob/Rota-de-login/Utils/Arquitetura%20do%20Tema%201.jpegraw=true)
+![topologia-da-aplicacao](https://github.com/Fernando-Olmedo/tryiiter/blob/a498d4fe4d2bae62900a1454c64e89b465a0bc99/Utils/Arquitetura%20do%20Tema%201.jpeg)
 
 </details>
 
