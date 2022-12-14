@@ -10,6 +10,7 @@ public class Post : BaseEntity
     [Key]
     public long PostId { get; set; }
     [Column("content")]
+    [MaxLength(300)]
     [Required]
     public string Content { get; set; }
     [Column("user_id")]

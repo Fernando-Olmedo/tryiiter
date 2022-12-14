@@ -35,6 +35,11 @@ public class PostController : Controller
     [HttpPost]
     public async Task<IActionResult> Add([FromBody] PostInsert post)
     {
+        if (post.Content.Length > 300)
+        {
+            return BadRequest(new { message = "O conteúdo pode ter no máximo 300 caracteres" });
+        }
+        
         var response = await _repository.AddPost(post);
         return Created("", response);
     }
@@ -42,6 +47,11 @@ public class PostController : Controller
     [HttpPut("{id}")]
     public async Task<IActionResult> Update([FromBody] PostUpdate post, long id)
     {
+        if (post?.Content.Length > 300)
+        {
+            return BadRequest(new { message = "O conteúdo pode ter no máximo 300 caracteres" });
+        }
+        
         var response = await _repository.UpdatePost(post, id);
         if (response.Contains("atualizado"))
         {
