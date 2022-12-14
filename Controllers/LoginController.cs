@@ -11,12 +11,19 @@ namespace tryiiter.Controllers;
 [Route("v1")]
 public class LoginController : ControllerBase
 {
+    public UserRepository _repository;
+
+    public LoginController(UserRepository repository)
+    {
+        _repository = repository;
+    }
+
     [HttpPost]
     [Route("login")]
     [AllowAnonymous]
     public async Task<IActionResult> AuthenticateAsync([FromBody] User model)
     {
-        var user = UserRepository.Get(model.Email, model.Password);
+        var user = _repository.Get(model.Email, model.Password);
 
         if (user == null)
             return NotFound(new { message = "Usuário ou senha inválidos" });
@@ -27,7 +34,6 @@ public class LoginController : ControllerBase
 
         return Ok(new
         {
-            user = user,
             token = token
         });
     }

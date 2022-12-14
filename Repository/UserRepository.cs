@@ -1,27 +1,25 @@
 using tryiiter.Models;
-
 namespace tryiiter.Repository;
-
 public class UserRepository : IUserRepository
 {
-    private static TryiiterContext _context;
-
+    private readonly TryiiterContext _context;
     public UserRepository(TryiiterContext context)
     {
         _context = context;
     }
-
-    public static User Get(string email, string password)
+    
+    public User Get(string email, string password)
     {
         var user = _context.Users
             .FirstOrDefault(u => u.Email == email && u.Password == password);
         return user;
     }
-    public IEnumerable<User> GetUsers()
+    
+    public async Task<IEnumerable<User>> GetUsers()
     {
         return _context.Users.ToList();
     }
-    public User GetUserById(long id)
+    public async Task<User> GetUserById(long id)
     {
         return _context.Users
             .Where(u => u.UserId == id)
@@ -34,7 +32,7 @@ public class UserRepository : IUserRepository
                 Status = x.Status
             }).First();
     }
-    public void AddUser(User user)
+    public async Task<string> AddUser(User user)
     {
         User newUser = new User
         {
@@ -44,27 +42,31 @@ public class UserRepository : IUserRepository
             Status = user.Status,
             Password = user.Password
         };
-        
-        _context.Users.Add(newUser);
-        _context.SaveChanges();
+        await _context.Users.AddAsync(newUser);
+        await _context.SaveChangesAsync();
+        return "Usuário adicionado com sucesso!";
     }
-    public void UpdateUserModule(long id, string module)
+    public async Task<string> UpdateUserModule(long id, string module)
     {
-        var _user = _context.Users.Find(id);
+        var _user = await _context.Users.FindAsync(id);
         if (_user != null)
         {
             _user.Module = module;
             _context.SaveChanges();
+            return "Usuário atualizado com sucesso!";
         }
-    }
 
-    public void UpdateUserStatus(long id, string status)
+        return "Não foi possível realizar a operação";
+    }
+    public async Task<string> UpdateUserStatus(long id, string status)
     {
-        var _user = _context.Users.Find(id);
+        var _user = await _context.Users.FindAsync(id);
         if (_user != null)
         {
             _user.Status = status;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return "Removido com sucesso!";
         }
+        return "Não foi possível realizar a operação";
     }
 }

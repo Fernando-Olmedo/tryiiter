@@ -36,21 +36,4 @@ public class TestCategoryController : IClassFixture<WebApplicationFactory<Progra
         //Assert
         response.StatusCode.Should().Be(HttpStatusCode.OK);
     }
-    
-    
-    [Theory(DisplayName = "Teste para Categories com Status Unauthorized")]
-    [InlineData("INVALIDTOKEN")]
-    public async Task TestGetCategoriesFail(string invalidToken)
-    {   
-        //Arrange
-        var webClient = _factory.CreateClient();
-
-        //Act
-        webClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", invalidToken);
-        var response = await webClient.GetAsync("api/Category/Categories");
-
-        //Assert
-        response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
-    }
-    
 }

@@ -19,6 +19,7 @@ public class CategoryController : Controller
     
     [HttpGet]
     [Route("Categories")]
+    [AllowAnonymous]
     public async Task<IActionResult> GetCategories()
     {
         var result = await _repository.GetCategories();
@@ -26,6 +27,7 @@ public class CategoryController : Controller
     }
     
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public IActionResult GetCategory(int id)
     {
         return Ok(_repository.GetCategoryById(id));

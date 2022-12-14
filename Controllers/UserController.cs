@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using tryiiter.Repository;
 using tryiiter.Models;
-
 namespace tryiiter.Controllers;
 
 [ApiController]
@@ -14,29 +14,41 @@ public class UserController : Controller
         _repository = repository;
     }
     [HttpGet]
-    public IActionResult GetUser()
+    [Authorize]
+    public async Task<IActionResult> GetUser()
     {
         return Ok(_repository.GetUsers());
     }
     [HttpGet("{id}")]
-    public IActionResult GetUserById(long id)
+    [Authorize]
+    public async Task<IActionResult> GetUserById(long id)
     {
-        return Ok(_repository.GetUserById(id));
+        var user = await _repository.GetUserById(id);
+        var result = new {
+            Name = user.Name,
+            Email = user.Email,
+            Module = user.Module,
+            Status = user.Status
+        };
+        return Ok(result);
     }
     [HttpPost]
-    public IActionResult AddUser([FromBody] User user)
+    [AllowAnonymous]
+    public async Task<IActionResult> AddUser([FromBody] User _user)
     {
-        _repository.AddUser(user);
-        return Created("ok", user);
+        var result = await _repository.AddUser(_user);
+        return Created("ok", new { message = result });
     }
     [HttpPatch("{id}")]
-    public IActionResult UpdateModule([FromBody] string module, long id)
+    [Authorize]
+    public async Task<IActionResult> UpdateModule([FromBody] string module, long id)
     {
         _repository.UpdateUserModule(id, module);
         return Ok(new { message = "Atualizado com sucesso!" });
     }
     [HttpPatch("{id}")]
-    public IActionResult UpdateUserStatus([FromBody] string status, long id)
+    [Authorize]
+    public async Task<IActionResult> UpdateUserStatus([FromBody] string status, long id)
     {
         _repository.UpdateUserStatus(id, status);
         return Ok(new { message = "Atualizado com sucesso!" });
