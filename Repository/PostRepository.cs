@@ -31,7 +31,7 @@ public class PostRepository : IPostRepository
         return result;
     }
 
-    public void AddPost(PostInsert post)
+    public async Task<PostDTO> AddPost(PostInsert post)
     {
         Post newPost = new Post
         {
@@ -41,8 +41,8 @@ public class PostRepository : IPostRepository
             CreatedAt = DateTime.Now
         };
 
-        _context.Posts.Add(newPost);
-        _context.SaveChanges();
+        await _context.Posts.AddAsync(newPost);
+        await _context.SaveChangesAsync();
 
         List<PostCategory> postCategoriesList = new List<PostCategory>();
 
@@ -55,8 +55,22 @@ public class PostRepository : IPostRepository
             });
         }
 
-        _context.PostCategories.BulkInsert(postCategoriesList);
-        _context.BulkSaveChanges();
+        await _context.PostCategories.BulkInsertAsync(postCategoriesList);
+        await _context.BulkSaveChangesAsync();
+
+        var response = await _context.Posts
+            .Where(x => x.PostId == newPost.PostId)
+            .Select(x => new PostDTO
+            {
+                Id = x.PostId,
+                Content = x.Content,
+                UserId = x.UserId,
+                Image = x.Image,
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt
+            }).ToListAsync();
+
+        return response[0];
     }
 
     public async Task<PostDTO> GetPostById(long id)

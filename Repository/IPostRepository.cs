@@ -5,7 +5,7 @@ namespace tryiiter.Repository;
 public interface IPostRepository
 {
     Task<IEnumerable<PostDTO>> GetPosts();
-    void AddPost(PostInsert post);
+    Task<PostDTO> AddPost(PostInsert post);
     Task<PostDTO> GetPostById(long id);
     void DeletePost(long id);
 }

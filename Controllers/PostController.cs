@@ -33,10 +33,10 @@ public class PostController : Controller
     }
 
     [HttpPost]
-    public IActionResult Add([FromBody] PostInsert post)
+    public async Task<IActionResult> Add([FromBody] PostInsert post)
     {
-        _repository.AddPost(post);
-        return Created("", post);
+        var response = await _repository.AddPost(post);
+        return Created("", response);
     }
 
     [HttpPut("{id}")]
