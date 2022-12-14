@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using tryiiter.Models;
 
 namespace tryiiter.Repository;
@@ -11,46 +12,41 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public void UpdateUserStatus(long id, string status)
+    public async Task<IEnumerable<Category>> GetCategories()
     {
-        var _user = _context.Users.Find(id);
-        if (_user != null)
-        {
-            _user.Status = status;
-            _context.SaveChanges();
-        }
+        var result = await _context.Categories.ToListAsync();
+        return result;
     }
 
-    public IEnumerable<Category> GetCategories()
+    public async Task<Category> GetCategoryById(int id)
     {
-        return _context.Categories.ToList();
-    }
-
-    public Category GetCategoryById(int id)
-    {
-        var category = _context.Categories.Find(id);
+        var category = await _context.Categories.FindAsync(id);
         _context.SaveChanges();
         return category;
     }
 
-    public void AddCategory(string categoryName)
+    public async Task<string> AddCategory(string categoryName)
     {
         Category newCategory = new Category
         {
             Name = categoryName,
         };
         
-        _context.Categories.Add(newCategory);
+        await _context.Categories.AddAsync(newCategory);
         _context.SaveChanges();
+
+        return "Adicionado com sucesso";
     }
 
-    public void UpdateCategory(int id, string newCategoryName)
+    public async Task<string> UpdateCategory(int id, string newCategoryName)
     {
-        var _category = _context.Categories.Find(id);
+        var _category = await _context.Categories.FindAsync(id);
         if (_category != null)
         {
             _category.Name = newCategoryName;
             _context.SaveChanges();
         }
+        
+        return "Atualizado com sucesso";
     }
 }

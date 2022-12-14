@@ -38,7 +38,7 @@ public class TokenGenerator
     {
         var claims = new ClaimsIdentity();
             
-        claims.AddClaim(new Claim("id", user.UserId.ToString()));
+        claims.AddClaim(new Claim("UserId", user.UserId.ToString()));
         claims.AddClaim(new Claim("Email", user.Email));
 
         return claims;

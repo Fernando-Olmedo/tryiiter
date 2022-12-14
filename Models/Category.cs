@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace tryiiter.Models;
 
 public class Category : ICategory
 {
+    [ExcludeFromCodeCoverage]
     [Column("id")]
     public int Id { get; set; }
     [Column("name")]

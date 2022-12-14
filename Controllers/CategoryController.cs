@@ -18,9 +18,11 @@ public class CategoryController : Controller
     }
     
     [HttpGet]
-    public IActionResult GetCategories()
+    [Route("Categories")]
+    public async Task<IActionResult> GetCategories()
     {
-        return Ok(_repository.GetCategories());
+        var result = await _repository.GetCategories();
+        return Ok(result);
     }
     
     [HttpGet("{id}")]
@@ -31,16 +33,17 @@ public class CategoryController : Controller
     
     [HttpPost]
     [Authorize]
-    public IActionResult AddCategory([FromBody] Category categoryName)
+    public async Task<IActionResult> AddCategory([FromBody] Category categoryName)
     {
-        _repository.AddCategory(categoryName.Name);
+        await _repository.AddCategory(categoryName.Name);
         return Ok(new { message = "Adicionado com sucesso!" });
     }
 
     [HttpPatch("{id}")]
-    public IActionResult UpdateUserStatus([FromBody] string newCategoryName, int id)
+    [Authorize]
+    public async Task<IActionResult> UpdateUserStatus([FromBody] string newCategoryName, int id)
     {
-        _repository.UpdateCategory(id, newCategoryName);
+        await _repository.UpdateCategory(id, newCategoryName);
         return Ok(new { message = "Atualizado com sucesso!" });
     }
 }
