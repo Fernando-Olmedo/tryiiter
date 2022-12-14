@@ -18,28 +18,34 @@ public class CategoryController : Controller
     }
     
     [HttpGet]
-    public IActionResult GetCategories()
+    [Route("Categories")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetCategories()
     {
-        return Ok(_repository.GetCategories());
+        var result = await _repository.GetCategories();
+        return Ok(result);
     }
     
     [HttpGet("{id}")]
+    [AllowAnonymous]
     public IActionResult GetCategory(int id)
     {
         return Ok(_repository.GetCategoryById(id));
     }
     
     [HttpPost]
-    public IActionResult AddCategory([FromBody] Category categoryName)
+    [Authorize]
+    public async Task<IActionResult> AddCategory([FromBody] Category categoryName)
     {
-        _repository.AddCategory(categoryName.Name);
+        await _repository.AddCategory(categoryName.Name);
         return Ok(new { message = "Adicionado com sucesso!" });
     }
 
     [HttpPatch("{id}")]
-    public IActionResult UpdateUserStatus([FromBody] string newCategoryName, int id)
+    [Authorize]
+    public async Task<IActionResult> UpdateUserStatus([FromBody] string newCategoryName, int id)
     {
-        _repository.UpdateCategory(id, newCategoryName);
+        await _repository.UpdateCategory(id, newCategoryName);
         return Ok(new { message = "Atualizado com sucesso!" });
     }
 }

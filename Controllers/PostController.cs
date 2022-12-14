@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tryiiter.Models;
@@ -33,6 +34,7 @@ public class PostController : Controller
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> Add([FromBody] PostInsert post)
     {
         if (post.Content.Length > 300)
@@ -45,6 +47,7 @@ public class PostController : Controller
     }
 
     [HttpPut("{id}")]
+    [Authorize]
     public async Task<IActionResult> Update([FromBody] PostUpdate post, long id)
     {
         if (post?.Content.Length > 300)
@@ -62,6 +65,7 @@ public class PostController : Controller
     }
 
     [HttpDelete("{id}")]
+    [Authorize]
     public async Task<IActionResult> Delete(long id)
     {
         var response = await _repository.DeletePost(id);

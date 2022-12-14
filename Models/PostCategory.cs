@@ -1,9 +1,11 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace tryiiter.Models;
 
 public class PostCategory
 {
+    [ExcludeFromCodeCoverage]
     [Column("post_id")]
     public long PostId { get; set; }
     [Column("category_id")]

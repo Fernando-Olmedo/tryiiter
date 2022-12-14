@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace tryiiter.Models;
 
 public class Post : BaseEntity
 {
+    [ExcludeFromCodeCoverage]
     [Column("id")]
     [Key]
     public long PostId { get; set; }

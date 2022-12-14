@@ -13,7 +13,7 @@ public class TokenGenerator
     /// This function is to Generate Token 
     /// </summary>
     /// <returns>A string, the token JWT</returns>
-    public string Generate(User user)
+    public static string Generate(User user)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
         var tokenDescriptor = new SecurityTokenDescriptor()
@@ -34,13 +34,12 @@ public class TokenGenerator
     /// <summary>
     /// Function that adds the claims to the token
     /// </summary>
-    private ClaimsIdentity AddClaims(User user)
+    private static ClaimsIdentity AddClaims(User user)
     {
         var claims = new ClaimsIdentity();
             
-        claims.AddClaim(new Claim("Name", user.Name));
+        claims.AddClaim(new Claim("UserId", user.UserId.ToString()));
         claims.AddClaim(new Claim("Email", user.Email));
-        claims.AddClaim(new Claim("Password", user.Password));
 
         return claims;
     }

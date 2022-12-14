@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.5" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0" />
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -33,24 +34,28 @@
       <Compile Remove="Migrations\20221128122031_ChangeUserIdColumnNameInPostsTable.Designer.cs" />
       <Compile Remove="Migrations\TryiiterContextModelSnapshot.cs" />
       <Compile Remove="TryiiterTest\**" />
+      <Compile Remove="app.Test\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="wwwroot\**" />
       <EmbeddedResource Remove="Views\**" />
       <EmbeddedResource Remove="TryiiterTest\**" />
+      <EmbeddedResource Remove="app.Test\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="wwwroot\**" />
       <None Remove="Views\**" />
       <None Remove="TryiiterTest\**" />
+      <None Remove="app.Test\**" />
     </ItemGroup>
 
     <ItemGroup>
       <Content Remove="wwwroot\**" />
       <Content Remove="Views\**" />
       <Content Remove="TryiiterTest\**" />
+      <Content Remove="app.Test\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -124,6 +129,8 @@
       <_ContentIncludedByDefault Remove="TryiiterTest\obj\project.assets.json" />
       <_ContentIncludedByDefault Remove="TryiiterTest\obj\project.packagespec.json" />
       <_ContentIncludedByDefault Remove="TryiiterTest\obj\TryiiterTest.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="app.Test\obj\app.Test.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="app.Test\obj\project.assets.json" />
     </ItemGroup>
 
     <ItemGroup>
