@@ -55,6 +55,7 @@ public class PostDTO
     public string Content { get; set; }
     public long UserId { get; set; }
     public string Image { get; set; }
+    public List<int> CategoryIds { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime UpdatedAt { get; set; }
 }

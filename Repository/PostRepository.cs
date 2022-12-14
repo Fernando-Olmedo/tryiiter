@@ -23,6 +23,7 @@ public class PostRepository : IPostRepository
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
+                CategoryIds = x.PostCategories.Select(y => y.CategoryId).ToList(),
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt,
             });
@@ -66,6 +67,7 @@ public class PostRepository : IPostRepository
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
+                CategoryIds = x.PostCategories.Select(y => y.CategoryId).ToList(),
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt
             }).ToListAsync();
@@ -83,10 +85,11 @@ public class PostRepository : IPostRepository
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
+                CategoryIds = x.PostCategories.Select(o => o.CategoryId).ToList(),
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt,
-            }).ToListAsync();
-        return post[0];
+            }).FirstAsync();
+        return post;
     }
 
     public async Task<string> UpdatePost(PostUpdate post, long id)

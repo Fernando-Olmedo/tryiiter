@@ -12,3 +12,8 @@ public class PostCategory
     public Post Post { get; set; }
     public Category Category { get; set; }
 }
+
+public class PostCategoryDTO
+{
+    public int CategoryId { get; set; }
+}
