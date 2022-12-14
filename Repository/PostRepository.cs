@@ -14,12 +14,25 @@ public class PostRepository : IPostRepository
         _context = context;
     }
 
-    public IEnumerable<Post> GetPosts()
+    public async Task<IEnumerable<PostDTO>> GetPosts()
     {
-        return _context.Posts.ToList();
+        var posts = _context.Posts
+            .Select(x => new PostDTO
+            {
+                Id = x.PostId,
+                Content = x.Content,
+                UserId = x.UserId,
+                Image = x.Image,
+                CategoryIds = x.PostCategories.Select(y => y.CategoryId).ToList(),
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt,
+            });
+        
+        var result = await posts.ToListAsync();
+        return result;
     }
 
-    public void AddPost(PostInsert post)
+    public async Task<PostDTO> AddPost(PostInsert post)
     {
         Post newPost = new Post
         {
@@ -29,47 +42,83 @@ public class PostRepository : IPostRepository
             CreatedAt = DateTime.Now
         };
 
-        _context.Posts.Add(newPost);
-        _context.SaveChanges();
-    }
+        await _context.Posts.AddAsync(newPost);
+        await _context.SaveChangesAsync();
 
-    public Post GetPostById(long id)
-    {
-        return _context.Posts
-            .Where(p => p.PostId == id)
-            .Select(x => new Post
+        List<PostCategory> postCategoriesList = new List<PostCategory>();
+
+        foreach (var t in post.CategoryIds)
+        {
+            postCategoriesList.Add(new PostCategory
             {
-                PostId = x.PostId,
+                PostId = newPost.PostId,
+                CategoryId = t,
+            });
+        }
+
+        await _context.PostCategories.BulkInsertAsync(postCategoriesList);
+        await _context.BulkSaveChangesAsync();
+
+        var response = await _context.Posts
+            .Where(x => x.PostId == newPost.PostId)
+            .Select(x => new PostDTO
+            {
+                Id = x.PostId,
                 Content = x.Content,
                 UserId = x.UserId,
                 Image = x.Image,
+                CategoryIds = x.PostCategories.Select(y => y.CategoryId).ToList(),
+                CreatedAt = x.CreatedAt,
+                UpdatedAt = x.UpdatedAt
+            }).ToListAsync();
+
+        return response[0];
+    }
+
+    public async Task<PostDTO> GetPostById(long id)
+    {
+        var post = await _context.Posts
+            .Where(p => p.PostId == id)
+            .Select(x => new PostDTO
+            {
+                Id = x.PostId,
+                Content = x.Content,
+                UserId = x.UserId,
+                Image = x.Image,
+                CategoryIds = x.PostCategories.Select(o => o.CategoryId).ToList(),
                 CreatedAt = x.CreatedAt,
                 UpdatedAt = x.UpdatedAt,
-                PostCategories = x.PostCategories
-            }).First();
+            }).FirstAsync();
+        return post;
     }
 
-    public void UpdatePost(PostInsert post, long id)
+    public async Task<string> UpdatePost(PostUpdate post, long id)
     {
-        var _post = _context.Posts.Find(id);
-        if (_post != null)
+        var actualPost = await _context.Posts.FindAsync(id);
+        if (actualPost != null)
         {
-            _post.Content = post.Content;
-            _post.Image = post.Image;
-            _post.UserId = post.UserId;
-            _post.UpdatedAt = DateTime.Now;
-            _context.SaveChanges();
+            actualPost.Content = post.Content ?? actualPost.Content;
+            actualPost.Image = post.Image ?? actualPost.Image;
+            actualPost.UserId = post.UserId ?? actualPost.UserId;
+            actualPost.UpdatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+            return "Post atualizado com sucesso!";
         }
+
+        return "Não foi possível encontrar um post com este ID.";
     }
 
-    public void DeletePost(long id)
+    public async Task<string> DeletePost(long id)
     {
-        var post = _context.Posts.Find(id);
+        var post = await _context.Posts.FindAsync(id);
 
         if (post != null)
         {
             _context.Posts.Remove(post);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return "Removido com sucesso!";
         }
+
+        return "Não foi possível encontrar um Post com este ID.";
     }
 }

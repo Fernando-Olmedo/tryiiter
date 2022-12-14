@@ -18,35 +18,59 @@ public class PostController : Controller
 
     [HttpGet]
     [AllowAnonymous]
-    public IActionResult Get()
+    public async Task<IActionResult> Get()
     {
-        return Ok(_repository.GetPosts());
+        var result = await _repository.GetPosts();
+        return Ok(result);
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetById(long id)
+    [AllowAnonymous]
+    public async Task<IActionResult> GetById(long id)
     {
-        return Ok(_repository.GetPostById(id));
+        var result = await _repository.GetPostById(id);
+        return Ok(result);
     }
 
     [HttpPost]
-    public IActionResult Add([FromBody] PostInsert post)
+    public async Task<IActionResult> Add([FromBody] PostInsert post)
     {
-        _repository.AddPost(post);
-        return Created("", post);
+        if (post.Content.Length > 300)
+        {
+            return BadRequest(new { message = "O conteúdo pode ter no máximo 300 caracteres" });
+        }
+        
+        var response = await _repository.AddPost(post);
+        return Created("", response);
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update([FromBody] PostInsert post, long id)
+    public async Task<IActionResult> Update([FromBody] PostUpdate post, long id)
     {
-        _repository.UpdatePost(post, id);
-        return Ok(new { message = "Atualizado com sucesso!" });
+        if (post?.Content.Length > 300)
+        {
+            return BadRequest(new { message = "O conteúdo pode ter no máximo 300 caracteres" });
+        }
+        
+        var response = await _repository.UpdatePost(post, id);
+        if (response.Contains("atualizado"))
+        {
+            return Ok(new { message = response });
+        }
+
+        return NotFound(new { message = response });
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(long id)
+    public async Task<IActionResult> Delete(long id)
     {
-        _repository.DeletePost(id);
-        return Ok(new { message = "Removido com sucesso!" });
+        var response = await _repository.DeletePost(id);
+
+        if (response.Contains("Removido"))
+        {
+            return Ok(new { message = response });
+        }
+
+        return NotFound(new { message = response });
     }
 }
