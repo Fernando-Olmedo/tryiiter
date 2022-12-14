@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sp2+YerFihnKyEraDhkV1xsUwQ/k8qbzNpa6HnCODCQ=",
+  "Hash": "r63MeabUf+86a+i+LYtpwJ60MePzJJ6HxIMut4KmPgM=",
   "Source": "tryiiter",
   "BasePath": "_content/tryiiter",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "tryiiter/wwwroot",
       "Source": "tryiiter",
-      "ContentRoot": "/Users/weslley/Studies/csharp/tryiiter/wwwroot/",
+      "ContentRoot": "/Users/olmedojr/ACC-XP-C#/tryiiter/wwwroot/",
       "BasePath": "_content/tryiiter",
       "Pattern": "**"
     }

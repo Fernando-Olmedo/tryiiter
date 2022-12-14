@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj": {}
+    "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj": {}
   },
   "projects": {
-    "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj": {
+    "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj",
+        "projectUniqueName": "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj",
         "projectName": "tryiiter",
-        "projectPath": "/Users/weslley/Studies/csharp/tryiiter/tryiiter.csproj",
-        "packagesPath": "/Users/weslley/.nuget/packages/",
-        "outputPath": "/Users/weslley/Studies/csharp/tryiiter/obj/",
+        "projectPath": "/Users/olmedojr/ACC-XP-C#/tryiiter/tryiiter.csproj",
+        "packagesPath": "/Users/olmedojr/.nuget/packages/",
+        "outputPath": "/Users/olmedojr/ACC-XP-C#/tryiiter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/weslley/.nuget/NuGet/NuGet.Config"
+          "/Users/olmedojr/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -94,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.400/RuntimeIdentifierGraph.json"
         }
       }
     }

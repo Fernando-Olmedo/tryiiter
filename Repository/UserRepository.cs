@@ -4,11 +4,18 @@ namespace tryiiter.Repository;
 
 public class UserRepository : IUserRepository
 {
-    private readonly TryiiterContext _context;
+    private static TryiiterContext _context;
 
     public UserRepository(TryiiterContext context)
     {
         _context = context;
+    }
+
+    public static User Get(string email, string password)
+    {
+        var user = _context.Users
+            .FirstOrDefault(u => u.Email == email && u.Password == password);
+        return user;
     }
     public IEnumerable<User> GetUsers()
     {
