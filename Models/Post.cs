@@ -32,6 +32,14 @@ public class PostInsert
     public int[] CategoryIds { get; set; }
 }
 
+public class PostUpdate
+{
+    public string? Content { get; set; }
+    public long? UserId { get; set; }
+    public string? Image { get; set; }
+    public int[]? CategoryIds { get; set; }
+}
+
 public class BaseEntity
 {
     [Column("created_at")]

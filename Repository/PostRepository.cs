@@ -89,27 +89,33 @@ public class PostRepository : IPostRepository
         return post[0];
     }
 
-    public void UpdatePost(PostInsert post, long id)
+    public async Task<string> UpdatePost(PostUpdate post, long id)
     {
-        var _post = _context.Posts.Find(id);
-        if (_post != null)
+        var actualPost = await _context.Posts.FindAsync(id);
+        if (actualPost != null)
         {
-            _post.Content = post.Content;
-            _post.Image = post.Image;
-            _post.UserId = post.UserId;
-            _post.UpdatedAt = DateTime.Now;
-            _context.SaveChanges();
+            actualPost.Content = post.Content ?? actualPost.Content;
+            actualPost.Image = post.Image ?? actualPost.Image;
+            actualPost.UserId = post.UserId ?? actualPost.UserId;
+            actualPost.UpdatedAt = DateTime.Now;
+            await _context.SaveChangesAsync();
+            return "Post atualizado com sucesso!";
         }
+
+        return "Não foi possível encontrar um post com este ID.";
     }
 
-    public void DeletePost(long id)
+    public async Task<string> DeletePost(long id)
     {
-        var post = _context.Posts.Find(id);
+        var post = await _context.Posts.FindAsync(id);
 
         if (post != null)
         {
             _context.Posts.Remove(post);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
+            return "Removido com sucesso!";
         }
+
+        return "Não foi possível encontrar um Post com este ID.";
     }
 }

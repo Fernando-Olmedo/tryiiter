@@ -40,16 +40,27 @@ public class PostController : Controller
     }
 
     [HttpPut("{id}")]
-    public IActionResult Update([FromBody] PostInsert post, long id)
+    public async Task<IActionResult> Update([FromBody] PostUpdate post, long id)
     {
-        _repository.UpdatePost(post, id);
-        return Ok(new { message = "Atualizado com sucesso!" });
+        var response = await _repository.UpdatePost(post, id);
+        if (response.Contains("atualizado"))
+        {
+            return Ok(new { message = response });
+        }
+
+        return NotFound(new { message = response });
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(long id)
+    public async Task<IActionResult> Delete(long id)
     {
-        _repository.DeletePost(id);
-        return Ok(new { message = "Removido com sucesso!" });
+        var response = await _repository.DeletePost(id);
+
+        if (response.Contains("Removido"))
+        {
+            return Ok(new { message = response });
+        }
+
+        return NotFound(new { message = response });
     }
 }
