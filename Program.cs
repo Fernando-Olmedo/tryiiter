@@ -48,7 +48,7 @@ if (!app.Environment.IsDevelopment())
 
 var dbContext = new TryiiterContext();
 
-// dbContext.Database.EnsureDeleted();
+dbContext.Database.EnsureDeleted();
 dbContext.Database.EnsureCreated();
 
 app.UseHttpsRedirection();

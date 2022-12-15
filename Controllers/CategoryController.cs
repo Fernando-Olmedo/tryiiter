@@ -18,7 +18,7 @@ public class CategoryController : Controller
     }
     
     [HttpGet]
-    [Route("Categories")]
+    // [Route("Categories")]
     [AllowAnonymous]
     public async Task<IActionResult> GetCategories()
     {
@@ -43,9 +43,9 @@ public class CategoryController : Controller
 
     [HttpPatch("{id}")]
     [Authorize]
-    public async Task<IActionResult> UpdateUserStatus([FromBody] string newCategoryName, int id)
+    public async Task<IActionResult> UpdateUserStatus([FromBody] UpdateCategory category)
     {
-        await _repository.UpdateCategory(id, newCategoryName);
+        await _repository.UpdateCategory(category.CategoryId, category.Name);
         return Ok(new { message = "Atualizado com sucesso!" });
     }
 }

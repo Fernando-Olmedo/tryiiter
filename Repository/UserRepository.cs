@@ -52,7 +52,7 @@ public class UserRepository : IUserRepository
         if (_user != null)
         {
             _user.Module = module;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
             return "Usuário atualizado com sucesso!";
         }
 

@@ -23,3 +23,15 @@ public class User
     
     public ICollection<Post>? Posts { get; set; }
 }
+
+public class UserModuleUpdate
+{
+    public long UserId { get; set; }
+    public string Module { get; set; }
+}
+
+public class UserStatusUpdate
+{
+    public long UserId { get; set; }
+    public string Status { get; set; }
+}

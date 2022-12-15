@@ -14,3 +14,9 @@ public class Category : ICategory
     [ForeignKey("CategoryId")]
     public ICollection<PostCategory>? PostCategories { get; set; }
 }
+
+public class UpdateCategory
+{
+    public int CategoryId { get; set; }
+    public string Name { get; set; }
+}

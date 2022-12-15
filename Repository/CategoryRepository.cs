@@ -44,7 +44,7 @@ public class CategoryRepository : ICategoryRepository
         if (_category != null)
         {
             _category.Name = newCategoryName;
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
         
         return "Atualizado com sucesso";

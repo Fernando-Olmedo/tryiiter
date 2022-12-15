@@ -51,7 +51,7 @@ public class TryiiterContext : DbContext
     {
         if (optionsBuilder.IsConfigured) return;
         // TODO: configurar variaveis de ambiente
-        const string connectionString = "Server=tcp:tryiiter-db.database.windows.net,1433;Initial Catalog=tryiiterDb;Persist Security Info=False;User ID=adminGroup1;Password=P@assw0rd;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        const string connectionString = "Server=127.0.0.1;Database=tryiiter_db;User=SA;Password=Password12!;TrustServerCertificate=true";
         optionsBuilder.UseSqlServer(connectionString);
     }
 }

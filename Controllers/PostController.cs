@@ -46,16 +46,16 @@ public class PostController : Controller
         return Created("", response);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut()]
     [Authorize]
-    public async Task<IActionResult> Update([FromBody] PostUpdate post, long id)
+    public async Task<IActionResult> Update([FromBody] PostUpdate post)
     {
-        if (post?.Content.Length > 300)
+        if (post.Content?.Length > 300)
         {
             return BadRequest(new { message = "O conteúdo pode ter no máximo 300 caracteres" });
         }
         
-        var response = await _repository.UpdatePost(post, id);
+        var response = await _repository.UpdatePost(post, post.Id);
         if (response.Contains("atualizado"))
         {
             return Ok(new { message = response });

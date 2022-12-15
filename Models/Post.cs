@@ -37,6 +37,7 @@ public class PostInsert
 
 public class PostUpdate
 {
+    public long Id { get; set; }
     public string? Content { get; set; }
     public long? UserId { get; set; }
     public string? Image { get; set; }
